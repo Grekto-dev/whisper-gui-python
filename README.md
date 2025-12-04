@@ -3,7 +3,7 @@
 A user-friendly Graphical User Interface (GUI) wrapper for OpenAI's 
 Whisper speech recognition model.
 
-Built with **Python** and **Tkinter**, WhisperFlow-GUI bridges the gap
+Built with **Python** and **Tkinter**, Whisper-GUI-Python bridges the gap
 between the command line and the user, offering features like **batch
 processing**, **real-time hardware monitoring**, and **comprehensive
 parameter configuration** without touching a terminal.
@@ -68,8 +68,8 @@ Before running the application, ensure you have the following installed:
 ### **Clone the repository**
 
 ``` bash
-git clone https://github.com/YOUR_USERNAME/WhisperFlow-GUI.git
-cd WhisperFlow-GUI
+git clone https://github.com/Grekto-dev/whisper-gui-python
+cd whisper-gui-python
 ```
 
 ### **Install Dependencies**
