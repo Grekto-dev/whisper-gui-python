@@ -1,13 +1,30 @@
 # **Whisper-GUI-Python**
 
-A user-friendly Graphical User Interface (GUI) for OpenAI's Whisper
-speech recognition model.
+A user-friendly Graphical User Interface (GUI) wrapper for OpenAI's 
+Whisper speech recognition model.
 
 Built with **Python** and **Tkinter**, WhisperFlow-GUI bridges the gap
 between the command line and the user, offering features like **batch
 processing**, **real-time hardware monitoring**, and **comprehensive
 parameter configuration** without touching a terminal.
 
+------------------------------------------------------------------------
+
+## 📦 Architecture & Design
+
+Unlike standalone applications that bundle a specific version of the 
+Whisper engine into a large executable, Whisper-GUI-Python is designed 
+as a lightweight wrapper (launcher) for the official OpenAI Whisper 
+CLI installed on your system.
+
+-   **Why this approach?** It ensures you are always using the official
+ source code. You can update the Whisper engine independently at any
+time (via pip install -U openai-whisper) to access new models and
+performance improvements immediately, without waiting for a GUI update.
+
+> **Note:** This means a one-time setup of Python and FFmpeg is 
+required, but it offers greater flexibility and keeps the application size 
+minimal.
 ------------------------------------------------------------------------
 
 ## ✨ **Features**
@@ -103,7 +120,7 @@ python whisper_gui.py
 ## 🌍 **Internationalization**
 
 The app automatically defaults to **English (US)**.
-You can change the language to other languages in the top-right corner
+You can change to other languages in the top-right corner
 (currently only **Brazilian Portuguese** is supported).
 The app will ask to restart to apply the language changes.
 
