@@ -920,7 +920,7 @@ class WhisperApp:
         self.root.after(0, _write)
 
     def select_files(self):
-        filetypes = [("Audio/Video", "*.flac *.m4a *.mp3 *.mp4 *.mpeg *.mpga *.oga *.ogg *.wav *.webm")]
+        filetypes = [("Audio/Video", "*.flac *.m4a *.mp3 *.mp4 *.mpeg *.mpga *.oga *.oga *.ogg *.wav *.webm")]
         files = filedialog.askopenfilenames(title=self.txt["msgs"]["select_files"], filetypes=filetypes)
         self.add_files_to_list(files)
 
@@ -1001,7 +1001,11 @@ class WhisperApp:
                 if val == self.txt["ui"]["auto_detect"]:
                     continue
                 match = re.search(r'\((.*?)\)', val)
-                if match: val = match.group(1)
+                if match:
+                    code = match.group(1)
+                    if code.lower() in ['detect', 'detectar', 'auto']:
+                        continue
+                    val = code
             if key == "device" and "cuda" in val: val = "cuda"
             base_flags.append(f"--{key}")
             base_flags.append(val)
@@ -1010,7 +1014,7 @@ class WhisperApp:
         use_custom = self.use_custom_output.get()
         env = os.environ.copy()
         env["PYTHONUNBUFFERED"] = "1"
-        env["PYTHONIOENCODING"] = "utf-8" # Adicionado para corrigir erro de Unicode no Windows
+        env["PYTHONUTF8"] = "1"
 
         for i, item_id in enumerate(items):
             file_path = self.tree.item(item_id)['values'][0]
